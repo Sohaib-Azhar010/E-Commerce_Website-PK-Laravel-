@@ -1,0 +1,138 @@
+.nav2{
+  position: sticky;
+  /* overflow: auto; */
+  top: 0%;
+  width: 100%;
+  background-color: white;
+  z-index: 12;
+}
+.productscart {
+  width: 60vw;
+  height: auto;
+  border: 1px solid rgb(210, 210, 210);
+  /* margin-top: 10vw; */
+}
+.cartheading {
+  background-color: rgb(0, 0, 0);
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1vw 3vw;
+  margin-top: 10vw;
+  width: 60vw;
+  
+}
+.cartheading p {
+  margin-top: 1.4vw;
+  font-size: 1.4vw;
+}
+
+.productdetails {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.productdetails img {
+  width: 5vw;
+  height: 6vw;
+}
+
+.productname {
+  margin: 2vh;
+  font-size: 1.4vw;
+  width: 10vw;
+  text-align: left;
+}
+
+.productprice{
+  width: 10vw;
+  font-size: 1.4vw;
+
+}
+.productdiv {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: .5vw 5vw .5vw .5vw;
+  /* margin-top: 2vw; */
+  /* box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px; */
+  border-bottom: 1px solid rgb(218, 218, 218);
+}
+
+.productdiv input {
+  height: 2vw;
+  width: 4vw;
+  border: .5px solid rgb(210, 210, 210);
+  outline: none;
+  font-size: 1.4vw;
+}
+
+.producttotal{
+  font-size: 1.4vw;
+  width: 10vw;
+}
+
+.productdiv button {
+  padding: 0.25vw 0.75vw;
+  background-color: rgb(0, 0, 0);
+  color: white;
+  font-size: 1.2vw;
+  /* font-weight: bold; */
+}
+
+.productdiv span {
+  font-size: 1.4vw;
+}
+
+.cartsummary {
+  width: 35vw;
+  height: auto;
+  margin-top: 5vw;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+  padding-bottom: 2vw;
+}
+
+.summaryheading {
+  background-color: black;
+  color: white;
+}
+
+.summaryheading p {
+  font-size: 2vw;
+}
+.subtotal,
+.shipping,
+.total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1.5vw 2vw;
+}
+
+.subtotal,
+.shipping,
+.total p {
+  font-size: 1.5vw;
+}
+
+.shipping,
+.total {
+  border-bottom: 0.5px solid rgb(193, 193, 193);
+}
+
+.chkoutbtn {
+  background-color: black;
+  color: white;
+  font-size: 1.4vw;
+  padding: 0.8vw 2vw;
+}
+
+.chkoutbtn:hover {
+  background-color: white;
+
+  box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px,
+    rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px,
+    rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
+  color: black;
+}

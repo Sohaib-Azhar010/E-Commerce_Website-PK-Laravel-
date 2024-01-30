@@ -1,0 +1,247 @@
+.nav2{
+    position: sticky;
+    /* overflow: auto; */
+    top: 0%;
+    width: 100%;
+    background-color: white;
+    z-index: 12;
+}
+.checkout{
+    width: 95vw;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 12vh;
+}
+.billing{
+    width: 60vw;
+    height: auto;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    background-color: rgb(243, 243, 243);
+    margin-left: 3vw;
+    
+
+}
+.left,.right{
+    margin-top: 3vw;
+    margin-left: 3vw;
+}
+.heading{
+    background-color: black;
+    color: white;
+    font-size: 3vw;
+    padding: 1vw 0vw;
+}
+.billingform{
+    width: 60vw;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    text-align: left;
+    padding:3vw 4vw;
+}
+
+.billingform label{
+    margin-top: 1.5vw;
+    font-size: 1.5vw;
+}
+
+.left,.right{
+    width: 25vw;
+}
+
+
+.left input,.right input{
+    width: 20vw;
+    height: 2.2vw;
+    border: none;
+    outline: none;
+
+}
+
+.left input::placeholder,.right input::placeholder{
+    font-size: 1.2vw;
+}
+
+.left input:hover,.right input:hover{
+    outline: .5px solid black;
+}
+
+.left select{
+    width: 20vw;
+    height: 2.2vw;
+    border: none;
+    outline: none;
+    font-size: 1.2vw;
+}
+
+.left select:hover{
+    outline: .5px solid black;
+
+}
+
+@media screen and (max-width:550px){
+    .left input,.right input{
+        width: 22vw;
+        height: 2.5vw;
+    
+    }
+    .left input::placeholder,.right input::placeholder{
+        font-size: 1.8vw;
+    }
+}
+@media screen and (max-width:380px){
+    .left input,.right input{
+        width: 24vw;
+        height: 3vw;
+    
+    }
+    .left input::placeholder,.right input::placeholder{
+        font-size: 2.3vw;
+    }
+}
+
+.payment{
+    width: 60vw;
+    height: auto;
+    display: inline;
+    justify-content: space-between;
+}
+
+.p_left{
+    width: 27vw;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    background-color: rgb(243, 243, 243);
+}
+
+.p_leftdiv{
+    padding: .5vw 1vw;
+   
+}
+
+.cartsummary {
+    width: 35vw;
+    height: auto;
+    margin-top: 5vw;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+    padding-bottom: 2vw;
+  }
+  
+
+  .subtotal,
+  .shipping
+   {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1vw 0vw;
+  }
+
+  .total{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2vw;
+    border-bottom: 1px solid rgb(188, 188, 188);
+  }
+  
+  .subtotal,
+  .shipping,
+  .total p {
+    font-size: 1.4vw;
+  }
+  
+  .shipping{
+    border-bottom: 0.5px solid rgb(193, 193, 193);
+  }
+
+  .total{
+
+
+    padding-top: 1vw;
+    padding-bottom: 1vw;
+  }
+.p_right{
+    width: 27vw;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    margin-top: 3vw;
+    background-color: rgb(243, 243, 243);
+}
+
+.p_rightdiv{
+    text-align: left;
+    padding: 1vw 2vw;
+}
+
+.p_rightdiv button{
+    background-color: black;
+    color: white;
+    width: 100%;
+    padding: 1.2vw 3vw;
+    font-size: 1.3vw;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+
+}
+
+.p_rightdiv button:hover{
+    background-color: white;
+    color: black;
+
+}
+.p_rightdiv label{
+    font-size: 1.4vw;
+}
+
+
+
+.p_leftheading{
+    background-color: black;
+    color: white;
+    
+}
+.p_rightheading{
+    background-color: black;
+    color: white;
+}
+.p_leftheading h1 ,.p_rightheading h1{
+    font-size: 2.5vw;
+    padding: 1.7vw 0vw;
+}
+
+@media screen and (max-width:750px){
+    .checkout{
+        display: inline;
+    }
+
+    .payment{
+        display: flex;
+        margin-top: 5vw;
+    }
+
+    .p_right{
+        margin-top: 0vw;
+    }
+
+    
+
+    .billing{
+        margin-left: 0vw;
+    }
+
+
+}
+
+@media screen and (max-width:700px){
+    .billing{
+        height: auto;
+        width: 80vw;
+    }
+    .payment{
+        width: 80vw;
+    }
+
+    .p_left,.p_right{
+        width: 35vw;
+    }
+    
+}
