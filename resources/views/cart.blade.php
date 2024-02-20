@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>PK MART</title>
-    <link rel="shortcut icon" href="Imgs/favicon.png" type="image/x-icon" />
+    <link rel="shortcut icon" href="Imgs/logo.png" type="image/x-icon" />
     <link rel="stylesheet" href="CSS/home.css" />
     <link rel="stylesheet" href="CSS/cart.css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -165,7 +165,9 @@
                     <p>Total Bill</p>
                     <p></p>
                 </div>
-                <button type="button" class="chkoutbtn">Proceed to Checkout</button>
+                {{-- <button type="button" class="chkoutbtn">Proceed to Checkout</button> --}}
+                <button type="button" class="chkoutbtn" id="proceedToCheckoutBtn">Proceed to Checkout</button>
+
 
             </div>
 
@@ -212,6 +214,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
     </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js"></script>
 
 
 
@@ -419,6 +423,45 @@
                 document.querySelector('.total p:last-child').textContent =
                     `Rs ${(subtotal + shipping ).toFixed(2)}`;
             }
+
+
+            var proceedToCheckoutBtn = document.getElementById('proceedToCheckoutBtn');
+            proceedToCheckoutBtn.addEventListener('click', function() {
+                // Retrieve cart data from localStorage
+                var cartData = localStorage.getItem('cart');
+
+                if (cartData) {
+                    // If cart data exists, parse it to an array
+                    var cartArray = JSON.parse(cartData);
+
+                    // Calculate subtotal, shipping, and total
+                    var subtotal = calculateSubtotal(cartArray);
+                    var shipping = 30; // Add shipping charges
+                    var total = subtotal + shipping;
+
+                    // Construct the URL with query parameters
+                    var checkoutUrl = '/checkout' +
+                        '?subtotal=' + subtotal +
+                        '&shipping=' + shipping +
+                        '&total=' + total;
+
+                    // Redirect to the checkout page with query parameters
+                    window.location.href = checkoutUrl;
+                }
+            });
+
+            // Existing functions...
+
+            // Function to calculate subtotal
+            function calculateSubtotal(cartArray) {
+                var subtotal = 0;
+                cartArray.forEach(function(item) {
+                    subtotal += item.quantity * parseFloat(item.price.replace('Rs', ''));
+                });
+                return subtotal;
+            }
+
+
 
 
         });

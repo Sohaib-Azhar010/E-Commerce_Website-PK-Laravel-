@@ -145,10 +145,10 @@
     border-bottom: 1px solid rgb(188, 188, 188);
   }
   
-  .subtotal,
-  .shipping,
+  .subtotal p,
+  .shipping p,
   .total p {
-    font-size: 1.4vw;
+    font-size: 1.5vw;
   }
   
   .shipping{

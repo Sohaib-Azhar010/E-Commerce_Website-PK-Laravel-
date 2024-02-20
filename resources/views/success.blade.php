@@ -7,7 +7,7 @@
     <title>PK MART</title>
     <link rel="shortcut icon" href="Imgs/logo.png" type="image/x-icon" />
     <link rel="stylesheet" href="CSS/home.css" />
-    <link rel="stylesheet" href="CSS/checkout.css" />
+   
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
@@ -116,111 +116,11 @@
 
 
     <!--MAIN SECTION AFTER NAVS-->
-    <form action="{{ route('checkout.store') }}" method='post'>
-        @csrf
-        <center>
-            <section class="checkout">
-                <section class="billing">
-                    <div class="heading">BILLING ADDRESS</div>
-                    <section class="billingform">
-                        <div class="left">
-                            <label for="fname">First Name</label>
-                            <input type="text" name="fname" id="" placeholder="Firstname here"
-                                required><br>
-                            <label for="billingemail">E-Mail</label><br>
-                            <input type="email" name="billingemail" id=""
-                                placeholder="username@gmail.com" required><br>
-                            <label for="address1">Billing Address</label>
-                            <input type="text" name="address1" id="" placeholder="Address Here"
-                                required><br>
-                            <label for="country">Select Country</label>
-                            <select name="country" id="" required>
-                                <option value="pakistan">Pakistan</option>
-                                <option value="india">India</option>
-                                <option value="china">China</option>
-                            </select><br>
-                            <label for="province">Province</label><br>
-                            <input type="text" name="province" id="" placeholder="Province Name"
-                                required>
-                        </div>
-                        <div class="right">
-                            <label for="lname">Last Name</label>
-                            <input type="text" name="lname" id="" placeholder="Lastname here"
-                                required><br>
-                            <label for="cellno">Phone No.</label>
-                            <input type="text" name="cellno" id="" placeholder="+92-300-0000000"
-                                pattern="(\+\[0-9]{2}-\[0-9]{3}-\[0-9]{7})" required maxlength="15"><br>
-                            <label for="address2">Shipping Address</label>
-                            <input type="text" name="address2" id="" placeholder="Second Address"><br>
-                            <label for="city">City Name</label>
-                            <input type="text" name="city" id="" placeholder="City Name"
-                                required><br>
-                            <label for="zipcode">ZIP Code</label>
-                            <input type="text" name="zipcode" id="" placeholder="123456" maxlength="6">
-                        </div>
-
-                    </section>
-                </section>
-
-                <section class="payment">
-
-
-                    <div class="p_left">
-                        <div class="p_leftheading">
-                            <h1>Total Bill</h1>
-                        </div>
-                        <div class="p_leftdiv">
-                            <div>
-                                <div class="subtotal">
-                                    <p>Sub Total</p>
-                                    {{-- <p>Rs{{ $subtotal }}</p> --}}
-                                    <p>Rs<input type="text" name="subtotal" id="subtotal" value="{{ $subtotal }}" readonly style="border: none;outline:none;width:30%;"></p>
-                                    <!-- Make sure to use the correct variable name here -->
-                                </div>
-                                <div class="shipping">
-                                    <p>Shipping</p>
-                                    {{-- <p>Rs {{ $shipping }} </p> --}}
-                                    <p>Rs<input type="text" name="shipping" id="shipping" value="{{ $shipping }}" readonly style="border: none;outline:none;width:30%;"></p>
-                                    <!-- Make sure to use the correct variable name here -->
-                                </div>
-                                <div class="total">
-                                    <p>Total Bill</p>
-                                    {{-- <p>Rs {{ $total }} </p> --}}
-                                    <p>Rs<input type="text" name="total" id="total" value="{{ $total }}" readonly style="border: none;outline:none;width:30%;"></p>
-                                    <!-- Make sure to use the correct variable name here -->
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="p_right">
-                        <div class="p_rightheading">
-                            <h1>Payment Method</h1>
-                        </div>
-                        <div class="p_rightdiv">
-
-                            <input type="radio" name="paymentmethod" id="bankTransfer" value="bank">
-                            <label for="bankTransfer">Bank Transfer</label><br>
-
-                            <input type="radio" name="paymentmethod" id="" value="cod">
-                            <label for="">Cash on Delivery</label><br>
-                            <hr>
-                            <button type="submit" name='billing'>Place Order</button>
-                            <hr>
-                        </div>
-
-                    </div>
-                </section>
-
-
-
-            </section>
-
-        </center>
-    </form>
-    <center>
-
-    </center>
-
+   <center>
+    <h1 style="margin-top: 8%">YOUR ORDER HAS BEEN PLACED</h1>
+    <img src="https://cdn-icons-png.flaticon.com/512/61/61222.png" alt="" style="width: 10vw;margin-top:2%">
+    <p style="margin-top: 2%;font-size:2vw">Thank you for Shopping</p>
+   </center> 
 
     <footer style="margin-top: 10%">
         <div class="footerdiv">

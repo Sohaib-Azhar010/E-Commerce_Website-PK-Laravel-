@@ -127,10 +127,8 @@
   z-index: 15;
 }
 
-
-
 .loginform{
-  width: 22vw;
+  width: 70%;
   height: auto;
   position: absolute;
   top: -50%;
@@ -141,85 +139,14 @@
   padding: 2vw 2vw;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
   z-index: 15;
-  background: white;
-}
-
-.loginform h1{
-  font-size: 2vw;
-  margin-bottom: 2vw;
-  position: relative;
-}
-
-.input-field{
-  width: 18vw;
-  margin: 1vw 0vw;
-  display: flex;
-  align-items: center;
-  background-color: rgb(240, 240, 240);
-  max-height: 65px;
-  transition: max-height .5s;
-  overflow: hidden;
-}
-.input-field input{
-  width: 90%;
-  border: transparent;
-  border: 0;
-  outline: 0;
-  padding: 1vw 0vw;
-  background-color: rgb(240, 240, 240);
-  font-size: 1vw;
-  
-}
-
-.input-field  img{
-
-  margin-left: 1vw;
-  margin-right: 1vw;
-  height: 1.5vw;
-  width: 1.5vw;
- 
-}
-
-form p{
-  text-align: left;
-  font-size: 1vw;
-}
-
-form a{
-  text-decoration: none;
-  color: rgb(119, 34, 119);
-}
-
-form a:hover{
-  text-decoration: underline;
-}
-
-.form-btn{
-  width: 18vw;
-  display: flex;
-  justify-content: space-between;
-  margin-top: 1vw;
-
-}
-.form-btn button{
-  font-size: 1vw;
-  padding: .7vw 2vw;
-  background-color: black;
-  color: white;
-  cursor: pointer;
-  border-radius: 3px;
-  transition: background .5s;
+  background: rgba(255, 255, 255, 0);
 }
 
 
-.form-btn button.disable{
-  background-color: rgb(240, 240, 240) ;
-  color: black;
-  outline: none;
-  border: .5px solid black;
-}
 
-.loginform span{
+
+
+.loginform .closeform{
   position: absolute;
   right: 0;
   top: 0;
