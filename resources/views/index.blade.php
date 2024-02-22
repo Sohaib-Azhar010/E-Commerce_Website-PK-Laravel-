@@ -151,7 +151,7 @@
             <input type="checkbox" id="check">
             <div class="login form">
                 <header>Login</header>
-                <form action="" method="post" onsubmit="return validateFormLogin()" id="form1">
+                <form action="{{route('LogIn.insert')}}" method="post" onsubmit="return validateFormLogin()" id="form1">
                     @csrf
                     <span id="emailerror"></span>
                     <input type="text" name="email" id="email" placeholder="Enter your email">
@@ -168,7 +168,7 @@
             </div>
             <div class="registration form">
                 <header>Signup</header>
-                <form action="" method="post" onsubmit="return validateFormSignUp()">
+                <form action="{{ route('SignUp.insert')}}" method="post" onsubmit="return validateFormSignUp()">
                     @csrf
                     <span id="usernameerror" class="error-span"></span>
                     <input type="text" placeholder="Enter username" name="name" class="sign">

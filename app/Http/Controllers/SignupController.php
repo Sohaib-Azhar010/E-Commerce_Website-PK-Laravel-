@@ -3,21 +3,38 @@
 namespace App\Http\Controllers;
 use App\Models\Signup;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 
 class SignupController extends Controller
 {
-    public function insert(Request $request){
-
-        $signup =new Signup();
-        $signup->id = $request->id;
-        $signup->name = $request->username;
-        $signup->email = $request->usermail;
-        $signup->password = $request->userpass;
-        $signup->save();
-        return view("SignupResources.insert_signup",["name"=> $signup->name]);
-        
+    public function insertSignUp(Request $request){
+        return view("Forms.login");
     }
+    public function hello(){
+        return view("hello");
+    }
+    public function storeSignUp(Request $request){
+        $SignUp = new SignUp();
+        $SignUp->id = $request->id;
+        $SignUp->name = $request->name;
+        $SignUp->email = $request->email;
+        $SignUp->password = $request->password;
+        $SignUp->save();
+        return view("insert_signup",["name"=>$SignUp->name]);
+    }
+    public function checkLogin(Request $request){
+        $email = $request->input('email');
+        $password = $request->input('password');
+        $userData = DB::table('signup_tbl')->where('email', $email)->first();
+        if ($userData && $userData->email == $email && $password == $userData->password) {
+            $request->session()->put('user_data', $userData);
+            return view('insert_signup',['name' => $userData->name]);
+        } else {
+            return view('hello');
+        }
+    }
+
 
 }
 

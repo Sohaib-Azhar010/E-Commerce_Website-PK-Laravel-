@@ -116,7 +116,7 @@
 
 
     <!--MAIN SECTION AFTER NAVS-->
-    <form action="{{ route('checkout.store') }}" method='post'>
+    <form action="{{ route('stripe.session') }}" method='post' on>
         @csrf
         <center>
             <section class="checkout">
