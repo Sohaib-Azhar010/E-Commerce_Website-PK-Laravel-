@@ -5,9 +5,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>PK MART</title>
-    <link rel="shortcut icon" href="Imgs/logo.png" type="image/x-icon" />
-    <link rel="stylesheet" href="CSS/home.css" />
-    <link rel="stylesheet" href="CSS/cart.css" />
+    <link rel="shortcut icon" href="{{URL::asset('Imgs/logo.png')}}" type="image/x-icon" />
+    <link rel="stylesheet" href="{{URL::asset('CSS/home.css')}}" />
+    <link rel="stylesheet" href="{{URL::asset('CSS/cart.css')}}" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"
         integrity="sha512-yHknP1/AwR+yx26cB1y0cjvQUMvEa2PFzt1c9LlS4pRQ5NOTZFWbhBig+X9G9eYW/8m0/4OXNx8pxJ6z57x0dw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+     
 </head>
 
 <body>

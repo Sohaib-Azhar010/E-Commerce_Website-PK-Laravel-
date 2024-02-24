@@ -5,9 +5,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>PK MART</title>
-    <link rel="shortcut icon" href="Imgs/logo.png" type="image/x-icon" />
-    <link rel="stylesheet" href="CSS/home.css" />
-    <link rel="stylesheet" href="CSS/checkout.css" />
+    <link rel="shortcut icon" href="{{URL::asset('Imgs/logo.png')}}" type="image/x-icon" />
+    <link rel="stylesheet" href="{{URL::asset('CSS/home.css')}}" />
+    <link rel="stylesheet" href="{{URL::asset('CSS/checkout.css')}}" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
@@ -136,8 +136,7 @@
                             <label for="country">Select Country</label>
                             <select name="country" id="" required>
                                 <option value="pakistan">Pakistan</option>
-                                <option value="india">India</option>
-                                <option value="china">China</option>
+                                
                             </select><br>
                             <label for="province">Province</label><br>
                             <input type="text" name="province" id="" placeholder="Province Name"
@@ -174,19 +173,19 @@
                                 <div class="subtotal">
                                     <p>Sub Total</p>
                                     {{-- <p>Rs{{ $subtotal }}</p> --}}
-                                    <p>Rs<input type="text" name="subtotal" id="subtotal" value="{{ $subtotal }}" readonly style="border: none;outline:none;width:30%;"></p>
+                                    <p>Rs. <input type="text" name="subtotal" id="subtotal" value="{{ $subtotal }}" readonly style="border: none;outline:none;width:30%;background:transparent;"></p>
                                     <!-- Make sure to use the correct variable name here -->
                                 </div>
                                 <div class="shipping">
                                     <p>Shipping</p>
                                     {{-- <p>Rs {{ $shipping }} </p> --}}
-                                    <p>Rs<input type="text" name="shipping" id="shipping" value="{{ $shipping }}" readonly style="border: none;outline:none;width:30%;"></p>
+                                    <p>Rs. <input type="text" name="shipping" id="shipping" value="{{ $shipping }}" readonly style="border: none;outline:none;width:30%;background:transparent;"></p>
                                     <!-- Make sure to use the correct variable name here -->
                                 </div>
                                 <div class="total">
                                     <p>Total Bill</p>
                                     {{-- <p>Rs {{ $total }} </p> --}}
-                                    <p>Rs<input type="text" name="total" id="total" value="{{ $total }}" readonly style="border: none;outline:none;width:30%;"></p>
+                                    <p>Rs. <input type="text" name="total" id="total" value="{{ $total }}" readonly style="border: none;outline:none;width:30%;background:transparent;"></p>
                                     <!-- Make sure to use the correct variable name here -->
                                 </div>
                             </div>
@@ -198,7 +197,7 @@
                         </div>
                         <div class="p_rightdiv">
 
-                            <input type="radio" name="paymentmethod" id="bankTransfer" value="bank">
+                            <input type="radio" name="paymentmethod" id="bankTransfer" value="bank" required>
                             <label for="bankTransfer">Bank Transfer</label><br>
 
                             <input type="radio" name="paymentmethod" id="" value="cod">

@@ -43,7 +43,7 @@
         </div>
         <div class="nav2mid">
             <a href=""><img src="Imgs/user.png" alt="" />User Profile</a>
-            <a href=""><img src="Imgs/shopping-bag.png" alt="" />My Cart</a>
+            <a href="/cart"><img src="Imgs/shopping-bag.png" alt="" />My Cart</a>
         </div>
         <div class="nav2right">
             <span>LANG</span>
@@ -56,9 +56,7 @@
 
             <nav class="navbar bg-body-dark">
                 <div class="container-fluid" style="display: flex; align-items: center">
-                    <!-- <a class="navbar-brand" href="#" style="margin-left: 3vw"
-              >PK MART -> ACCESSORIES</a
-            > -->
+
                     <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
                         data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation"
                         style="border: none;">
@@ -181,42 +179,37 @@
                     <img class="item-img" src="Accessoriesimgs/WATCH.png" alt="" />
                     <h1 class="item-title">DIGITAL WATCH</h1>
                     <p class="item-price">Rs 100</p>
-                    <p><button onclick="addToCart(this)">Add to Cart</button></p>
-
-
-
+                    <p><button onclick="showProduct(this)">Go to Product</button></p>
                 </div>
                 <div class="clothcard">
                     <img class="item-img" src="Accessoriesimgs/men_perf-removebg-preview.png" alt="" />
                     <h1 class="item-title">PERFUME</h1>
                     <p class="item-price">Rs 100</p>
-                    <p><button onclick="addToCart(this)">Add to Cart</button></p>
-
+                    <p><button onclick="showProduct(this)">Go to Product</button></p>
                 </div>
                 <div class="clothcard">
                     <img class="item-img" src="Accessoriesimgs/belt2-removebg-preview.png" alt="" />
                     <h1 class="item-title">BELT</h1>
                     <p class="item-price">Rs 100</p>
-                    <p><button onclick="addToCart(this)">Add to Cart</button></p>
-
+                    <p><button onclick="showProduct(this)">Go to Product</button></p>
                 </div>
                 <div class="clothcard">
-                    <img src="Accessoriesimgs/ma1-removebg-preview.png" alt="" />
-                    <h1>BAG</h1>
-                    <p class="price">$19.99</p>
-                    <p><button>Add to Cart</button></p>
+                    <img class="item-img" src="Accessoriesimgs/ma1-removebg-preview.png" alt="" />
+                    <h1 class="item-title">BAG</h1>
+                    <p class="item-price">Rs 200</p>
+                    <p><button onclick="showProduct(this)">Go to Product</button></p>
                 </div>
                 <div class="clothcard">
-                    <img src="Accessoriesimgs/watch-removebg-preview.png" alt="" />
-                    <h1>CASIO WATCH</h1>
-                    <p class="price">$19.99</p>
-                    <p><button>Add to Cart</button></p>
+                    <img class="item-img" src="Accessoriesimgs/watch-removebg-preview.png" alt="" />
+                    <h1 class="item-title">CASIO WATCH</h1>
+                    <p class="item-price">Rs 150</p>
+                    <p><button onclick="showProduct(this)">Go to Product</button></p>
                 </div>
                 <div class="clothcard">
-                    <img src="Accessoriesimgs/men_perf2-removebg-preview.png" alt="" />
-                    <h1>PERFUME</h1>
-                    <p class="price">$19.99</p>
-                    <p><button>Add to Cart</button></p>
+                    <img class="item-img" src="Accessoriesimgs/men_perf2-removebg-preview.png" alt="" />
+                    <h1 class="item-title">PERFUME</h1>
+                    <p class="item-price">Rs 250</p>
+                    <p><button onclick="showProduct(this)">Go to Product</button></p>
                 </div>
             </div>
         </section>
@@ -226,40 +219,40 @@
         <section class="menaccesoriessection">
             <div class="menitems slider">
                 <div class="clothcard">
-                    <img src="Accessoriesimgs/wmbracelet-removebg-preview.png" alt="" />
-                    <h1>BRACELET</h1>
-                    <p class="price">$19.99</p>
-                    <p><button>Add to Cart</button></p>
+                    <img class="item-img" src="Accessoriesimgs/wmbracelet-removebg-preview.png" alt="" />
+                    <h1 class="item-title">BRACELET</h1>
+                    <p class="item-price">Rs 300</p>
+                    <p><button onclick="showProduct(this)">Go to Product</button></p>
                 </div>
                 <div class="clothcard">
-                    <img src="Accessoriesimgs/earings1-removebg-preview.png" alt="" />
-                    <h1>EARINGS</h1>
-                    <p class="price">$19.99</p>
-                    <p><button>Add to Cart</button></p>
+                    <img class="item-img" src="Accessoriesimgs/earings1-removebg-preview.png" alt="" />
+                    <h1 class="item-title">EARINGS</h1>
+                    <p class="item-price">Rs 200</p>
+                    <p><button onclick="showProduct(this)">Go to Product</button></p>
                 </div>
                 <div class="clothcard">
-                    <img src="Accessoriesimgs/wa1-removebg-preview.png" alt="" />
-                    <h1>CLUTCH</h1>
-                    <p class="price">$19.99</p>
-                    <p><button>Add to Cart</button></p>
+                    <img class="item-img" src="Accessoriesimgs/wa1-removebg-preview.png" alt="" />
+                    <h1 class="item-title">CLUTCH</h1>
+                    <p class="item-price">Rs 500</p>
+                    <p><button onclick="showProduct(this)">Go to Product</button></p>
                 </div>
                 <div class="clothcard">
-                    <img src="Accessoriesimgs/perfume2-removebg-preview.png" alt="" />
-                    <h1>PERFUME</h1>
-                    <p class="price">$19.99</p>
-                    <p><button>Add to Cart</button></p>
+                    <img class="item-img" src="Accessoriesimgs/perfume2-removebg-preview.png" alt="" />
+                    <h1 class="item-title">PERFUME</h1>
+                    <p class="item-price">Rs 200</p>
+                    <p><button onclick="showProduct(this)">Go to Product</button></p>
                 </div>
                 <div class="clothcard">
-                    <img src="Accessoriesimgs/bags-removebg-preview.png" alt="" />
-                    <h1>BAGS SET</h1>
-                    <p class="price">$19.99</p>
-                    <p><button>Add to Cart</button></p>
+                    <img class="item-img" src="Accessoriesimgs/bags-removebg-preview.png" alt="" />
+                    <h1 class="item-title">BAGS SET</h1>
+                    <p class="item-price">Rs 500</p>
+                    <p><button onclick="showProduct(this)">Go to Product</button></p>
                 </div>
                 <div class="clothcard">
-                    <img src="Accessoriesimgs/perfume-removebg-preview.png" alt="" />
-                    <h1>PERFUME</h1>
-                    <p class="price">$19.99</p>
-                    <p><button>Add to Cart</button></p>
+                    <img class="item-img" src="Accessoriesimgs/perfume-removebg-preview.png" alt="" />
+                    <h1 class="item-title">PERFUME 2</h1>
+                    <p class="item-price">Rs 100</p>
+                    <p><button onclick="showProduct(this)">Go to Product</button></p>
                 </div>
             </div>
         </section>
@@ -304,12 +297,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
     </script>
-    <!-- Add this script to handle the 'Add to Cart' functionality -->
-
 
     <script>
-        // Function to handle 'Add to Cart' functionality
-        function addToCart(button) {
+        function showProduct(button) {
             var clothCard = button.parentNode.parentNode;
             console.log('clothCard:', clothCard);
 
@@ -327,34 +317,14 @@
                 quantity: 1,
             };
 
-            // Check if cart data exists in localStorage
-            var cartData = localStorage.getItem('cart');
-            if (!cartData) {
-                // If cart data doesn't exist, create an empty array
-                cartData = [];
-            } else {
-                // If cart data exists, parse it to an array
-                cartData = JSON.parse(cartData);
-            }
-
-            // Check if the item already exists in the cart
-            var existingItem = cartData.find(item => item.title === title);
-
-            if (existingItem) {
-                // If the item already exists, show an alert and don't add it again
-                alert('Item already exists in the cart!');
-            } else {
-                // Add the new item to the cart
-                cartData.push(cartItem);
-
-                // Save the updated cart data to localStorage
-                localStorage.setItem('cart', JSON.stringify(cartData));
-
-                // Show a success alert
-                alert('Item added to cart!');
-            }
+            // Redirect to the product page with the product details
+            window.location.href =
+                `productpage?img=${encodeURIComponent(img)}&title=${encodeURIComponent(title)}&price=${encodeURIComponent(price)}`;
         }
     </script>
+
+    <!-- ... (your existing HTML code) ... -->
+
 
 
 

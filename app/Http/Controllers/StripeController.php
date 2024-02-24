@@ -6,37 +6,6 @@ use Illuminate\Http\Request;
 use App\Models\Checkout;
 use Stripe\Exception\InvalidRequestException;
 
-// class StripeController extends Controller
-// {
-//     public function session (Request $request) {
-//        
-//         \Stripe\Stripe::setApiKey(config('stripe.sk'));
-//         $totalPrice = $request->get('total');
-//         $two0 = '00';
-//         $total = $totalPrice . $two0;
-
-//         $session = \Stripe\Checkout\Session::create ([
-//             'line_items' => [
-//                 [
-//                     'price_data' => [
-//                         'currency' => 'USD', // Replace with your currency code (e.g., USD)
-//                         'unit_amount' => $total,
-//                         'product_data' => [
-//                             'name' => 'Your Product Name',
-//                         ],
-//                     ],
-//                     'quantity' => 1,
-//                 ],
-//             ],
-//             'mode' => 'payment',
-//             'success_url' => route('success'),
-//             'cancel_url' => route('checkout'),
-
-
-//         ]);
-//         return redirect() -> away($session->url);
-//     }
-// }
 class StripeController extends Controller
 {
     public function session(Request $request)

@@ -20,6 +20,14 @@ Route::get('/checkout', function () {
     return view('checkout');
 });
 
+Route::get('/clothing', function () {
+    return view('clothing');
+});
+
+// Route::get('/productpage', function () {
+//     return view('product');
+// });
+
 Route::post('/Signed_Up',[SignupController::class,'storeSignUp'])->name('SignUp.insert');
 Route::post('/Logged_In',[SignupController::class,'checkLogin'])->name('LogIn.insert');
 
@@ -39,4 +47,7 @@ Route::post('/session', [StripeController::class, 'session'])->name('stripe.sess
 Route::group(['middleware'=> ['authChk']], function () {
     Route::get('/hello',[SignUpController::class,'hello']);
 });
+
+Route::get('/productpage', [CheckoutController::class, 'showProductPage']);
+
 

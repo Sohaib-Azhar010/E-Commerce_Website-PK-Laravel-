@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Illuminate\Http\Request;
 use App\Models\Checkout;
 
@@ -12,7 +13,7 @@ class CheckoutController extends Controller
         $subtotal = request()->input('subtotal', 0);
         $shipping = request()->input('shipping', 0);
         $total = request()->input('total', 0);
-    
+
         return view('checkout', compact('subtotal', 'shipping', 'total'));
     }
     public function store(Request $request)
@@ -48,6 +49,17 @@ class CheckoutController extends Controller
 
         // You can also return a response or redirect the user after saving the data
         return redirect()->route('success')->with('message', 'Order placed successfully!');
+    }
+
+    public function showProductPage(Request $request)
+    {
+        // Retrieve data from the query string
+        $img = $request->query('img');
+        $title = $request->query('title');
+        $price = $request->query('price');
+
+        // Pass data to the view
+        return view('product', compact('img', 'title', 'price'));
     }
 
 

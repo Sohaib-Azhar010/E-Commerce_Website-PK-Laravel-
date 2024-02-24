@@ -4,9 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>PK MART</title>
-    <link rel="shortcut icon" href="Imgs/favicon.png" type="image/x-icon" />
-    <link rel="stylesheet" href="CSS/home.css" />
-    <link rel="stylesheet" href="CSS/clothing.css" />
+    <link rel="shortcut icon" href="{{URL::asset('Imgs/logo.png')}}" type="image/x-icon" />
+    <link rel="stylesheet" href="{{URL::asset('CSS/home.css')}}" />
+    <link rel="stylesheet" href="{{URL::asset('CSS/clothing.css')}}" />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -60,7 +60,7 @@
       </div>
       <div class="nav2mid">
         <a href=""><img src="Imgs/user.png" alt="" />User Profile</a>
-        <a href=""><img src="Imgs/shopping-bag.png" alt="" />My Cart</a>
+        <a href="/cart"><img src="Imgs/shopping-bag.png" alt="" />My Cart</a>
       </div>
       <div class="nav2right">
         <span>LANG</span>
@@ -272,40 +272,40 @@
         <section class="mencloth">
             <div class="menclothleft slider">
                 <div class="clothcard">
-                    <img src="Clothingimgs/man-4-removebg-preview.png" alt="">
-                    <h1>SHIRT</h1>
-                    <p class="price">$19.99</p>
-                    <p><button>Add to Cart</button></p>
+                    <img class="item-img" src="Clothingimgs/man-4-removebg-preview.png" alt="">
+                    <h1 class="item-title">SHIRT</h1>
+                    <p class="item-price">Rs 500</p>
+                    <p><button onclick="showProduct(this)">Go to Product</button></p>
                   </div>
                   <div class="clothcard">
-                    <img src="Clothingimgs/man-3-removebg-preview.png" alt="">
-                    <h1>HOODIE</h1>
-                    <p class="price">$19.99</p>
-                    <p><button>Add to Cart</button></p>
+                    <img class="item-img" src="Clothingimgs/man-3-removebg-preview.png" alt="">
+                    <h1 class="item-title">HOODIE</h1>
+                    <p class="item-price">Rs 100</p>
+                    <p><button onclick="showProduct(this)">Go to Product</button></p>
                   </div>
                   <div class="clothcard">
-                    <img src="Clothingimgs/track_suit-removebg-preview.png" alt="">
-                    <h1>TRACK SUIT</h1>
-                    <p class="price">$19.99</p>
-                    <p><button>Add to Cart</button></p>
+                    <img class="item-img" src="Clothingimgs/track_suit-removebg-preview.png" alt="">
+                    <h1 class="item-title">TRACK SUIT</h1>
+                    <p class="item-price">Rs 200</p>
+                    <p><button  onclick="showProduct(this)">Go to Product</button></p>
                   </div>
                   <div class="clothcard">
-                    <img src="Clothingimgs/men_h-removebg-preview.png" alt="">
-                    <h1>SWEAT SHIRTS</h1>
-                    <p class="price">$19.99</p>
-                    <p><button>Add to Cart</button></p>
+                    <img class="item-img" src="Clothingimgs/men_h-removebg-preview.png" alt="">
+                    <h1 class="item-title">SWEAT SHIRTS</h1>
+                    <p class="item-price">Rs 500</p>
+                    <p><button  onclick="showProduct(this)">Go to Product</button></p>
                   </div>
                   <div class="clothcard">
-                    <img src="Clothingimgs/jacket-removebg-preview.png" alt="">
-                    <h1>JACKET</h1>
-                    <p class="price">$19.99</p>
-                    <p><button>Add to Cart</button></p>
+                    <img class="item-img" src="Clothingimgs/jacket-removebg-preview.png" alt="">
+                    <h1 class="item-title">JACKET</h1>
+                    <p class="item-price">Rs 200</p>
+                    <p><button  onclick="showProduct(this)">Go to Product</button></p>
                   </div>
                   <div class="clothcard">
-                    <img src="Clothingimgs/hood-removebg-preview.png" alt="">
-                    <h1>HOODIE</h1>
-                    <p class="price">$19.99</p>
-                    <p><button>Add to Cart</button></p>
+                    <img class="item-img" src="Clothingimgs/hood-removebg-preview.png" alt="">
+                    <h1 class="item-title">HOODIE</h1>
+                    <p class="item-price">Rs 100</p>
+                    <p><button  onclick="showProduct(this)">Go to Product</button></p>
                   </div>
                  
 
@@ -325,38 +325,38 @@
                 <div class="clothcard">
                     <img src="Clothingimgs/women-3-removebg-preview.png" alt="">
                     <h1>SHIRT</h1>
-                    <p class="price">$19.99</p>
-                    <p><button>Add to Cart</button></p>
+                    <p class="item-price">$19.99</p>
+                    <p><button>Go to Product</button></p>
                   </div>
                   <div class="clothcard">
                     <img src="Clothingimgs/women-1-removebg-preview.png" alt="">
                     <h1>SHIRT</h1>
-                    <p class="price">$19.99</p>
-                    <p><button>Add to Cart</button></p>
+                    <p class="item-price">$19.99</p>
+                    <p><button>Go to Product</button></p>
                   </div>
                   <div class="clothcard">
                     <img src="Clothingimgs/women-2-removebg-preview.png" alt="">
                     <h1>SHIRT</h1>
-                    <p class="price">$19.99</p>
-                    <p><button>Add to Cart</button></p>
+                    <p class="item-price">$19.99</p>
+                    <p><button>Go to Product</button></p>
                   </div>
                   <div class="clothcard">
                     <img src="Clothingimgs/women6-removebg-preview.png" alt="">
                     <h1>SHIRT</h1>
-                    <p class="price">$19.99</p>
-                    <p><button>Add to Cart</button></p>
+                    <p class="item-price">$19.99</p>
+                    <p><button>Go to Product</button></p>
                   </div>
                   <div class="clothcard">
                     <img src="Clothingimgs/women_4-removebg-preview.png" alt="">
                     <h1>SHIRT</h1>
-                    <p class="price">$19.99</p>
-                    <p><button>Add to Cart</button></p>
+                    <p class="item-price">$19.99</p>
+                    <p><button>Go to Product</button></p>
                   </div>
                   <div class="clothcard">
                     <img src="Clothingimgs/women7-removebg-preview.png" alt="">
                     <h1>SHIRT</h1>
-                    <p class="price">$19.99</p>
-                    <p><button>Add to Cart</button></p>
+                    <p class="item-price">$19.99</p>
+                    <p><button>Go to Product</button></p>
                   </div>
                  
 
@@ -460,6 +460,30 @@
           },
         ],
       });
+    </script>
+       <script>
+        function showProduct(button) {
+            var clothCard = button.parentNode.parentNode;
+            console.log('clothCard:', clothCard);
+
+            var imgElement = clothCard.querySelector('.item-img');
+            console.log('imgElement:', imgElement);
+
+            var img = imgElement ? imgElement.getAttribute('src') : null;
+            var title = clothCard.querySelector('.item-title').innerText;
+            var price = clothCard.querySelector('.item-price').innerText;
+
+            var cartItem = {
+                img: img,
+                title: title,
+                price: price,
+                quantity: 1,
+            };
+
+            // Redirect to the product page with the product details
+            window.location.href =
+                `productpage?img=${encodeURIComponent(img)}&title=${encodeURIComponent(title)}&price=${encodeURIComponent(price)}`;
+        }
     </script>
   </body>
 </html>
