@@ -5,9 +5,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>PK MART</title>
-    <link rel="shortcut icon" href="{{URL::asset('Imgs/logo.png')}}" type="image/x-icon" />
-    <link rel="stylesheet" href="{{URL::asset('CSS/home.css')}}" />
-    <link rel="stylesheet" href="{{URL::asset('CSS/checkout.css')}}" />
+    <link rel="shortcut icon" href="{{ URL::asset('Imgs/logo.png') }}" type="image/x-icon" />
+    <link rel="stylesheet" href="{{ URL::asset('CSS/home.css') }}" />
+    <link rel="stylesheet" href="{{ URL::asset('CSS/checkout.css') }}" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
@@ -42,7 +42,11 @@
             <img src="Imgs/LOGO21.PNG" alt="" />
         </div>
         <div class="nav2mid">
-            <a href=""><img src="Imgs/user.png" alt="" />User Profile</a>
+            <a href=""><img src="Imgs/user.png" alt="" />
+                @if ($userData)
+                    {{ $userData->name }}
+                @endif
+            </a>
             <a href=""><img src="Imgs/shopping-bag.png" alt="" />My Cart</a>
         </div>
         <div class="nav2right">
@@ -129,33 +133,35 @@
                                 required><br>
                             <label for="billingemail">E-Mail</label><br>
                             <input type="email" name="billingemail" id=""
-                                placeholder="username@gmail.com" required><br>
+                                placeholder="username@gmail.com" required maxlength="25"><br>
                             <label for="address1">Billing Address</label>
-                            <input type="text" name="address1" id="" placeholder="Address Here"
-                                required><br>
+                            <input type="text" name="address1" id="" placeholder="Address Here" required
+                                maxlength="50"><br>
                             <label for="country">Select Country</label>
                             <select name="country" id="" required>
                                 <option value="pakistan">Pakistan</option>
-                                
+
                             </select><br>
                             <label for="province">Province</label><br>
                             <input type="text" name="province" id="" placeholder="Province Name"
-                                required>
+                                maxlength="20" required>
                         </div>
                         <div class="right">
                             <label for="lname">Last Name</label>
                             <input type="text" name="lname" id="" placeholder="Lastname here"
-                                required><br>
+                                maxlength="20" required><br>
                             <label for="cellno">Phone No.</label>
-                            <input type="text" name="cellno" id="" placeholder="+92-300-0000000"
-                                pattern="(\+\[0-9]{2}-\[0-9]{3}-\[0-9]{7})" required maxlength="15"><br>
+                            <input type="text" name="cellno" id="" placeholder="03001234567"
+                                pattern="(\+\[0-9]{2}-\[0-9]{3}-\[0-9]{7})" required maxlength="11"><br>
                             <label for="address2">Shipping Address</label>
-                            <input type="text" name="address2" id="" placeholder="Second Address"><br>
+                            <input type="text" name="address2" id="" placeholder="Second Address"
+                                maxlength="50"><br>
                             <label for="city">City Name</label>
-                            <input type="text" name="city" id="" placeholder="City Name"
-                                required><br>
+                            <input type="text" name="city" id="" placeholder="City Name" required
+                                maxlength="20"><br>
                             <label for="zipcode">ZIP Code</label>
-                            <input type="text" name="zipcode" id="" placeholder="123456" maxlength="6">
+                            <input type="text" name="zipcode" id="" placeholder="123456"
+                                maxlength="6">
                         </div>
 
                     </section>
@@ -173,19 +179,25 @@
                                 <div class="subtotal">
                                     <p>Sub Total</p>
                                     {{-- <p>Rs{{ $subtotal }}</p> --}}
-                                    <p>Rs. <input type="text" name="subtotal" id="subtotal" value="{{ $subtotal }}" readonly style="border: none;outline:none;width:30%;background:transparent;"></p>
+                                    <p>Rs. <input type="text" name="subtotal" id="subtotal"
+                                            value="{{ $subtotal }}" readonly
+                                            style="border: none;outline:none;width:30%;background:transparent;"></p>
                                     <!-- Make sure to use the correct variable name here -->
                                 </div>
                                 <div class="shipping">
                                     <p>Shipping</p>
                                     {{-- <p>Rs {{ $shipping }} </p> --}}
-                                    <p>Rs. <input type="text" name="shipping" id="shipping" value="{{ $shipping }}" readonly style="border: none;outline:none;width:30%;background:transparent;"></p>
+                                    <p>Rs. <input type="text" name="shipping" id="shipping"
+                                            value="{{ $shipping }}" readonly
+                                            style="border: none;outline:none;width:30%;background:transparent;"></p>
                                     <!-- Make sure to use the correct variable name here -->
                                 </div>
                                 <div class="total">
                                     <p>Total Bill</p>
                                     {{-- <p>Rs {{ $total }} </p> --}}
-                                    <p>Rs. <input type="text" name="total" id="total" value="{{ $total }}" readonly style="border: none;outline:none;width:30%;background:transparent;"></p>
+                                    <p>Rs. <input type="text" name="total" id="total"
+                                            value="{{ $total }}" readonly
+                                            style="border: none;outline:none;width:30%;background:transparent;"></p>
                                     <!-- Make sure to use the correct variable name here -->
                                 </div>
                             </div>
@@ -260,7 +272,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
     </script>
-      
+
 </body>
 
 </html>

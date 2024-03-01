@@ -21,9 +21,71 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"
         integrity="sha512-yHknP1/AwR+yx26cB1y0cjvQUMvEa2PFzt1c9LlS4pRQ5NOTZFWbhBig+X9G9eYW/8m0/4OXNx8pxJ6z57x0dw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 100;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
 </head>
 
 <body>
+    {{-- @if (Session::has('alert'))
+        <script>
+            alert("{{ Session::get('alert') }}");
+        </script>
+    @endif --}}
+
+    @if (Session::has('alert'))
+        <!-- Modal -->
+        <div id="errorModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <p>{{ Session::get('alert') }}</p>
+            </div>
+        </div>
+
+        <!-- Script to show and close the modal -->
+        <script>
+            // Show modal
+            document.getElementById('errorModal').style.display = 'block';
+
+            // Close modal
+            function closeModal() {
+                document.getElementById('errorModal').style.display = 'none';
+            }
+        </script>
+    @endif
     <nav class="nav1">
         <div class="nav1left">
             <a href=""><img src="Imgs/email.png" alt="" />info@pkmart.com</a>
@@ -96,37 +158,37 @@
                                     <a class="nav-link" href="">POPULAR ITEMS</a>
                                 </li>
                                 <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" role="button"
+                                    <a class="nav-link dropdown-toggle" href="/clothing" role="button"
                                         data-bs-toggle="dropdown" aria-expanded="false">
                                         CLOTHING
                                     </a>
                                     <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="#">MEN</a></li>
-                                        <li><a class="dropdown-item" href="#">WOMEN</a></li>
+                                        <li><a class="dropdown-item" href="/clothing">MEN</a></li>
+                                        <li><a class="dropdown-item" href="/clothing">WOMEN</a></li>
                                     </ul>
                                 </li>
 
                                 <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" role="button"
+                                    <a class="nav-link dropdown-toggle" href="/accessories" role="button"
                                         data-bs-toggle="dropdown" aria-expanded="false">
                                         ACCESSORIES
                                     </a>
                                     <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="#">MEN</a></li>
-                                        <li><a class="dropdown-item" href="#">WOMEN</a></li>
+                                        <li><a class="dropdown-item" href="/accessories">MEN</a></li>
+                                        <li><a class="dropdown-item" href="/accessories">WOMEN</a></li>
                                     </ul>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">FOLLOW US</a>
+                                    <a class="nav-link" href="#end">FOLLOW US</a>
                                 </li>
                             </ul>
-                            <form class="d-flex mt-3" role="search">
+                            {{-- <form class="d-flex mt-3" role="search">
                                 <input class="form-control me-2" type="search" placeholder="Search"
                                     aria-label="Search" />
                                 <button class="btn btn-outline-dark" type="submit">
                                     Search
                                 </button>
-                            </form>
+                            </form> --}}
                         </div>
                     </div>
                 </div>
@@ -139,7 +201,7 @@
     -->
     <div class="overlay"></div>
 
-    
+
     <div class="loginform">
         {{-- <span class="closeform">&times;</span> --}}
         <br>
@@ -147,11 +209,12 @@
 
 
         <div class="contain">
-          <span class="closeform">&times;</span>
+            <span class="closeform">&times;</span>
             <input type="checkbox" id="check">
             <div class="login form">
                 <header>Login</header>
-                <form action="{{route('LogIn.insert')}}" method="post" onsubmit="return validateFormLogin()" id="form1">
+                <form action="{{ route('LogIn.insert') }}" method="post" onsubmit="return validateFormLogin()"
+                    id="form1">
                     @csrf
                     <span id="emailerror"></span>
                     <input type="text" name="email" id="email" placeholder="Enter your email">
@@ -162,13 +225,13 @@
                 </form>
                 <div class="signup">
                     <p class="signup">Don't have an account?<label for="check">Signup</label></p>
-                        
-                    
+
+
                 </div>
             </div>
             <div class="registration form">
                 <header>Signup</header>
-                <form action="{{ route('SignUp.insert')}}" method="post" onsubmit="return validateFormSignUp()">
+                <form action="{{ route('SignUp.insert') }}" method="post" onsubmit="return validateFormSignUp()">
                     @csrf
                     <span id="usernameerror" class="error-span"></span>
                     <input type="text" placeholder="Enter username" name="name" class="sign">
@@ -180,8 +243,8 @@
                 </form>
                 <div class="signup">
                     <p class="signup">Already have an account?<label for="check">Login</label></p>
-                        
-                    
+
+
                 </div>
             </div>
         </div>
@@ -416,7 +479,7 @@
     </section>
 
     <footer>
-        <div class="footerdiv">
+        <div class="footerdiv" id="end">
             <h3 class="footerheading">PK MART</h3>
             <p class="footerdiscription">
                 "Discover a world of seamless shopping at "PK MART". Immerse yourself
@@ -504,100 +567,100 @@
             document.querySelector(".loginform").style.top = "-50%";
         }
     </script>
-     <script>
-      function validateFormLogin() {
-      var email = document.forms[0]["email"].value;
-      var password = document.forms[0]["password"].value;
-      if (email.trim() === "") {
-        var spantag = document.getElementById("emailerror");
-        spantag.style.color = 'red';
-        spantag.innerHTML = "Email can't be empty";
-        return false;
-      }
-      if (!email.endsWith('@gmail.com')) {
-        var spantag = document.getElementById("emailerror");
-        spantag.style.color = 'red';
-        spantag.innerHTML = "Please enter a valid Gmail address.";
-        return false;
-      }
-      if (password.trim() === "") {
-        var spantag = document.getElementById("passworderror");
-        spantag.style.color = 'red';
-        spantag.innerHTML = "Password cannot be empty.";
-        return false;
-      }
-      if (password.length < 8) {
-        var spantag = document.getElementById("passworderror");
-        spantag.style.color = 'red';
-        spantag.innerHTML = "Password must be at least 8 characters long.";
-        return false;
-      }
-    return true;
-  }
- 
-    function validateFormSignUp() {
-    var username = document.forms[1]["name"].value;
-    var email = document.forms[1]["email"].value;
-    var password = document.forms[1]["password"].value;
-    if (username.trim() === "") {
-      var spantag = document.getElementById("usernameerror");
-      spantag.style.color = 'red';
-      spantag.innerHTML = "Username cannot be empty.";
-      return false;
-    }
-    if (username.length > 15) {
-      var spantag = document.getElementById("usernameerror");
-      spantag.style.color = 'red';
-      spantag.innerHTML = "Username must not exceed 15 characters.";
-      return false;
-    }
-    if (email.trim() === "") {
-      var spantag = document.getElementById("semailerror");
-      spantag.style.color = 'red';
-      spantag.innerHTML = "Email cannot be empty";
-      return false;
-    }
-    if (!email.endsWith('@gmail.com')) {
-      var spantag = document.getElementById("semailerror");
-      spantag.style.color = 'red';
-      spantag.innerHTML = "Please enter a valid Gmail address.";
-      return false;
-    }
-    if (password.trim() === "") {
-      var spantag = document.getElementById("spassworderror");
-      spantag.style.color = 'red';
-      spantag.innerHTML = "Password cannot be empty.";
-      return false;
-    }
-    if (password.length < 8) {
-      var spantag = document.getElementById("spassworderror");
-      spantag.style.color = 'red';
-      spantag.innerHTML = "Password must be at least 8 characters long.";
-      return false;
-    }
-    return true;
-  }
-   //for login
-   $(document).ready(function () {
-      $("#email").click(function () {
-        $("#emailerror").text("");
-      });
-    });
-    $(document).ready(function () {
-      $("#password").click(function () {
-        $("#passworderror").text("");
-      });
-    });
-    //for signup form
-    $(document).ready(function () {
-    $(".sign").click(function () {
-      $(".error-span").text("");
-    });
-  });
-  </script>
+    <script>
+        function validateFormLogin() {
+            var email = document.forms[0]["email"].value;
+            var password = document.forms[0]["password"].value;
+            if (email.trim() === "") {
+                var spantag = document.getElementById("emailerror");
+                spantag.style.color = 'red';
+                spantag.innerHTML = "Email can't be empty";
+                return false;
+            }
+            if (!email.endsWith('@gmail.com')) {
+                var spantag = document.getElementById("emailerror");
+                spantag.style.color = 'red';
+                spantag.innerHTML = "Please enter a valid Gmail address.";
+                return false;
+            }
+            if (password.trim() === "") {
+                var spantag = document.getElementById("passworderror");
+                spantag.style.color = 'red';
+                spantag.innerHTML = "Password cannot be empty.";
+                return false;
+            }
+            if (password.length < 8) {
+                var spantag = document.getElementById("passworderror");
+                spantag.style.color = 'red';
+                spantag.innerHTML = "Password must be at least 8 characters long.";
+                return false;
+            }
+            return true;
+        }
+
+        function validateFormSignUp() {
+            var username = document.forms[1]["name"].value;
+            var email = document.forms[1]["email"].value;
+            var password = document.forms[1]["password"].value;
+            if (username.trim() === "") {
+                var spantag = document.getElementById("usernameerror");
+                spantag.style.color = 'red';
+                spantag.innerHTML = "Username cannot be empty.";
+                return false;
+            }
+            if (username.length > 15) {
+                var spantag = document.getElementById("usernameerror");
+                spantag.style.color = 'red';
+                spantag.innerHTML = "Username must not exceed 15 characters.";
+                return false;
+            }
+            if (email.trim() === "") {
+                var spantag = document.getElementById("semailerror");
+                spantag.style.color = 'red';
+                spantag.innerHTML = "Email cannot be empty";
+                return false;
+            }
+            if (!email.endsWith('@gmail.com')) {
+                var spantag = document.getElementById("semailerror");
+                spantag.style.color = 'red';
+                spantag.innerHTML = "Please enter a valid Gmail address.";
+                return false;
+            }
+            if (password.trim() === "") {
+                var spantag = document.getElementById("spassworderror");
+                spantag.style.color = 'red';
+                spantag.innerHTML = "Password cannot be empty.";
+                return false;
+            }
+            if (password.length < 8) {
+                var spantag = document.getElementById("spassworderror");
+                spantag.style.color = 'red';
+                spantag.innerHTML = "Password must be at least 8 characters long.";
+                return false;
+            }
+            return true;
+        }
+        //for login
+        $(document).ready(function() {
+            $("#email").click(function() {
+                $("#emailerror").text("");
+            });
+        });
+        $(document).ready(function() {
+            $("#password").click(function() {
+                $("#passworderror").text("");
+            });
+        });
+        //for signup form
+        $(document).ready(function() {
+            $(".sign").click(function() {
+                $(".error-span").text("");
+            });
+        });
+    </script>
 
 
-  
+
 
 
 </body>

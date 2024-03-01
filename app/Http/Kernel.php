@@ -36,6 +36,8 @@ class Kernel extends HttpKernel
             \Illuminate\View\Middleware\ShareErrorsFromSession::class,
             \App\Http\Middleware\VerifyCsrfToken::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
+            \App\Http\Middleware\UserDataMiddleware::class,
+
         ],
 
         'api' => [
@@ -43,9 +45,17 @@ class Kernel extends HttpKernel
             \Illuminate\Routing\Middleware\ThrottleRequests::class.':api',
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
-        'authChk'=>[
-            \App\Http\Middleware\AuthChk::class,
-        ]
+        // 'authChk'=>[
+        //     \App\Http\Middleware\AuthChk::class,
+        // ]
+
+        // 'authChk' => [
+
+        //     // ... other middleware
+        //     // \App\Http\Middleware\AuthChk::class,
+        //     \App\Http\Middleware\UserDataMiddleware::class,
+
+        // ],
     ];
 
     /**

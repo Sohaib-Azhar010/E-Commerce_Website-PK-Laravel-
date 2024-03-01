@@ -8,7 +8,7 @@ use Stripe\Exception\InvalidRequestException;
 
 class StripeController extends Controller
 {
-    public function session(Request $request)
+    public function createCheckoutSession(Request $request)
     {
         $request->validate([
             'fname' => 'required|string',
@@ -60,15 +60,18 @@ class StripeController extends Controller
                 'cancel_url' => route('checkout'),
             ]);
 
+
             // Store the Checkout model only if the payment is successful
-            $checkout->stripe_session_id = $session->id;
+            // $checkout->stripe_session_id = $session->id;
             $checkout->save();
 
             return redirect()->away($session->url);
         } catch (InvalidRequestException $e) {
-            // Handle Stripe API exception (payment failure)
-            // You can customize this based on your application's requirements
             return redirect()->route('checkout')->with('error', 'Payment failed. Please try again.');
         }
     }
 }
+
+
+
+

@@ -12,7 +12,7 @@ return new class extends Migration
             $table->id();
             $table->string('fname');
             $table->string('lname');
-            $table->string('billingemail')->unique();
+            $table->string('billingemail');
             $table->string('country');
             $table->string('city');
             $table->string('province');

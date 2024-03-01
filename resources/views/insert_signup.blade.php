@@ -78,7 +78,7 @@
 
         <!-- <a href=""><img src="Imgs/user.png" alt="" />Login|SignUp</a> -->
 
-        <a href=""><img src="Imgs/shopping-bag.png" alt="" />My Cart</a>
+        <a href="/cart"><img src="Imgs/shopping-bag.png" alt="" />My Cart</a>
       </div>
       <div class="nav2right">
         <span>LANG</span>
@@ -135,7 +135,7 @@
                   <li class="nav-item dropdown">
                     <a
                       class="nav-link dropdown-toggle"
-                      href="#"
+                      href="/clothing"
                       role="button"
                       data-bs-toggle="dropdown"
                       aria-expanded="false"
@@ -143,15 +143,15 @@
                       CLOTHING
                     </a>
                     <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="#">MEN</a></li>
-                      <li><a class="dropdown-item" href="#">WOMEN</a></li>
+                      <li><a class="dropdown-item" href="/clothing">MEN</a></li>
+                      <li><a class="dropdown-item" href="/clothing">WOMEN</a></li>
                     </ul>
                   </li>
 
                   <li class="nav-item dropdown">
                     <a
                       class="nav-link dropdown-toggle"
-                      href="#"
+                      href="/accessories"
                       role="button"
                       data-bs-toggle="dropdown"
                       aria-expanded="false"
@@ -159,25 +159,15 @@
                       ACCESSORIES
                     </a>
                     <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="#">MEN</a></li>
-                      <li><a class="dropdown-item" href="#">WOMEN</a></li>
+                      <li><a class="dropdown-item" href="/accessories">MEN</a></li>
+                      <li><a class="dropdown-item" href="/accessories">WOMEN</a></li>
                     </ul>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#">FOLLOW US</a>
+                    <a class="nav-link" href="#end">FOLLOW US</a>
                   </li>
                 </ul>
-                <form class="d-flex mt-3" role="search">
-                  <input
-                    class="form-control me-2"
-                    type="search"
-                    placeholder="Search"
-                    aria-label="Search"
-                  />
-                  <button class="btn btn-outline-dark" type="submit">
-                    Search
-                  </button>
-                </form>
+               
               </div>
             </div>
           </div>

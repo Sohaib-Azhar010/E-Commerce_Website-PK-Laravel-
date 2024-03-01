@@ -13,9 +13,9 @@ class AddStripeSessionIdToCheckoutsTable extends Migration
      */
     public function up()
     {
-        Schema::table('checkouts', function (Blueprint $table) {
-            $table->string('stripe_session_id')->nullable();
-        });
+        // Schema::table('checkouts', function (Blueprint $table) {
+        //     $table->string('stripe_session_id')->nullable();
+        // });
     }
 
     /**
@@ -25,9 +25,9 @@ class AddStripeSessionIdToCheckoutsTable extends Migration
      */
     public function down()
     {
-        Schema::table('checkouts', function (Blueprint $table) {
-            $table->dropColumn('stripe_session_id');
-        });
+        // Schema::table('checkouts', function (Blueprint $table) {
+        //     $table->dropColumn('stripe_session_id');
+        // });
     }
 }
 

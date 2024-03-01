@@ -42,7 +42,11 @@
             <img src="Imgs/LOGO21.PNG" alt="" />
         </div>
         <div class="nav2mid">
-            <a href=""><img src="Imgs/user.png" alt="" />User Profile</a>
+            <a href=""><img src="Imgs/user.png" alt="" />
+                @if ($userData)
+                    {{ $userData->name }}
+                @endif
+            </a>
             <a href="/cart"><img src="Imgs/shopping-bag.png" alt="" />My Cart</a>
         </div>
         <div class="nav2right">

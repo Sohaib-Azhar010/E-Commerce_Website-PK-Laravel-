@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Controllers\SignupController;
-use App\Http\Controllers\SigninController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\StripeController;
@@ -24,9 +23,12 @@ Route::get('/clothing', function () {
     return view('clothing');
 });
 
-// Route::get('/productpage', function () {
-//     return view('product');
-// });
+Route::get('/admin', function () {
+    return view('Admin.admin_index');
+});
+
+
+
 
 Route::post('/Signed_Up',[SignupController::class,'storeSignUp'])->name('SignUp.insert');
 Route::post('/Logged_In',[SignupController::class,'checkLogin'])->name('LogIn.insert');
@@ -42,12 +44,19 @@ Route::get('/success', function () {
 
 
 
-Route::post('/session', [StripeController::class, 'session'])->name('stripe.session');
+Route::post('/session', [StripeController::class, 'createCheckoutSession'])->name('stripe.session');
 
-Route::group(['middleware'=> ['authChk']], function () {
+
+Route::group(['middleware'=> ['UserDataMiddleware']], function () {
     Route::get('/hello',[SignUpController::class,'hello']);
 });
 
 Route::get('/productpage', [CheckoutController::class, 'showProductPage']);
+
+Route::get('/admin', [CheckoutController::class, 'showOrdersPage']);
+
+Route::get('/test', function () {
+    dd(auth()->user());
+});
 
 
