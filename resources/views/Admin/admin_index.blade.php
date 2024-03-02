@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" href="{{URL::asset('Imgs/logo.png')}}" type="image/x-icon" />
+    <link rel="shortcut icon" href="{{ URL::asset('Imgs/logo.png') }}" type="image/x-icon" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
     <link rel="stylesheet" href="{{ URL::asset('CSS/admin.css') }}" />
@@ -55,16 +55,19 @@
             <div class="list-group list-group-flush my-3">
                 <a href="#" class="list-group-item list-group-item-action bg-transparent second-text active"><i
                         class="fas fa-tachometer-alt me-2"></i>Dashboard</a>
-                <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i
-                        class="fas fa-project-diagram me-2"></i>Projects</a>
-                <a href="#analytics" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i
+
+                <a href="#analytics"
+                    class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i
                         class="fas fa-chart-line me-2"></i>Analytics</a>
-                <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i
-                        class="fas fa-paperclip me-2"></i>Reports</a>
-                <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i
-                        class="fas fa-shopping-cart me-2"></i>Store Mng</a>
-                <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i
-                        class="fas fa-gift me-2"></i>Products</a>
+
+                <a href="/inventory"
+                    class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i
+                        class="fas fa-shopping-cart me-2"></i>Inventory</a>
+                <a href="/product_manage"
+                    class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i
+                        class="fas fa-gift me-2"></i>Add Products</a>
+                <a href="/accounts" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i
+                        class="fas fa-user me-2"></i>Acc Manage</a>
 
                 <a href="#" class="list-group-item list-group-item-action bg-transparent text-danger fw-bold"><i
                         class="fas fa-power-off me-2"></i>Logout</a>
@@ -186,25 +189,26 @@
                                     @foreach ($orders->reverse() as $order)
                                         <tr>
                                             <th scope="row">{{ $order->id }}</th>
-                                            <td>{{ $order->fname }}</td>
-                                            <td>{{ $order->lname }}</td>
-                                            <td>{{ $order->billingemail }}</td>
-                                            <td>{{ $order->billingaddress }}</td>
-                                            <td>{{ $order->shippingaddress }}</td>
-                                            <td>{{ $order->province }}</td>
-                                            <td>{{ $order->cellno }}</td>
-                                            <td>{{ $order->city }}</td>
-                                            <td>{{ $order->zipcode }}</td>
-                                            <td>{{ $order->paymentmethod }}</td>
-                                            <td>{{ $order->subtotal }}</td>
-                                            <td>{{ $order->shipping }}</td>
-                                            <td>{{ $order->total }}</td>
-                                            <td>{{ $order->created_at }}</td>
-                                            <td>
+                                            <td class="text-center align-middle">{{ $order->fname }}</td>
+                                            <td class="text-center align-middle">{{ $order->lname }}</td>
+                                            <td class="text-center align-middle">{{ $order->billingemail }}</td>
+                                            <td class="text-center align-middle">{{ $order->billingaddress }}</td>
+                                            <td class="text-center align-middle">{{ $order->shippingaddress }}</td>
+                                            <td class="text-center align-middle">{{ $order->province }}</td>
+                                            <td class="text-center align-middle">{{ $order->cellno }}</td>
+                                            <td class="text-center align-middle">{{ $order->city }}</td>
+                                            <td class="text-center align-middle">{{ $order->zipcode }}</td>
+                                            <td class="text-center align-middle">{{ $order->paymentmethod }}</td>
+                                            <td class="text-center align-middle">{{ $order->subtotal }}</td>
+                                            <td class="text-center align-middle">{{ $order->shipping }}</td>
+                                            <td class="text-center align-middle">{{ $order->total }}</td>
+                                            <td class="text-center align-middle">{{ $order->created_at }}</td>
+                                            <td class="text-center align-middle">
                                                 <button id="approveBtn{{ $order->id }}"
                                                     onclick="approveOrder({{ $order->id }})"
-                                                    class="btn btn-success btn-sm">Approve</button>
+                                                    class="btn btn-success btn-sm text-center">Approve</button>
                                             </td>
+
                                             <!-- Add other table cells as needed -->
                                         </tr>
                                     @endforeach
@@ -313,14 +317,14 @@
         function downloadOrders() {
             // Get the table HTML
             var table = document.querySelector('.table');
-    
+
             // Convert the table to a worksheet
             var ws = XLSX.utils.table_to_sheet(table);
-    
+
             // Create a workbook with a single worksheet
             var wb = XLSX.utils.book_new();
             XLSX.utils.book_append_sheet(wb, ws, 'RecentOrders');
-    
+
             // Save the workbook as an Excel file
             XLSX.writeFile(wb, 'recent_orders.xlsx');
         }

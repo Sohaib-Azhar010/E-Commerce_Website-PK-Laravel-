@@ -4,13 +4,12 @@ use App\Http\Controllers\SignupController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\StripeController;
+use App\Http\Controllers\ProductController;
 
 Route::get('/', function () {
     return view('index');
 });
-Route::get('/accessories', function () {
-    return view('accessories');
-});
+
 Route::get('/cart', function () {
     return view('cart');
 });
@@ -26,6 +25,16 @@ Route::get('/clothing', function () {
 Route::get('/admin', function () {
     return view('Admin.admin_index');
 });
+
+
+Route::get('/product_manage', function () {
+    return view('Admin.admin_product');
+})->name('pm');
+
+Route::get('/accounts', function () {
+    return view('Admin.accounts');
+});
+
 
 
 
@@ -59,4 +68,18 @@ Route::get('/test', function () {
     dd(auth()->user());
 });
 
+Route::post('/products', [ProductController::class, 'store'])->name('products.store');
+// routes/web.php or routes/api.php
 
+// Route::delete('/products/{id}', 'ProductController@destroy')->name('products.destroy');
+// routes/web.php
+Route::delete('/products/{id}', [ProductController::class,'destroy'])->name('products.destroy');
+
+
+
+Route::get('/inventory', [ProductController::class, 'index'])->name('Admin.inventory');
+
+Route::post('/add-to-page/{productId}', [ProductController::class, 'addToPage'])->name('addToPage');
+
+Route::get('/accessories', [ProductController::class, 'showAccessoriesPage'])->name('item.topage');
+Route::get('/clothing', [ProductController::class, 'showClothingPage'])->name('item.topage');

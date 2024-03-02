@@ -1,9 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Models\Checkout;
+
 
 
 class CheckoutController extends Controller
@@ -16,6 +17,7 @@ class CheckoutController extends Controller
 
         return view('checkout', compact('subtotal', 'shipping', 'total'));
     }
+
     public function store(Request $request)
     {
         // Validate the form data
@@ -63,6 +65,37 @@ class CheckoutController extends Controller
     }
 
 
+public function showOrdersPage()
+{
+    // Fetch orders from the database
+    $orders = Checkout::all();
+    
+    // Total number of orders
+    $totalOrders = $orders->count();
+    
+    // Total price from all orders
+    $totalPrice = $orders->sum('total');
+
+    // Filter orders for the last 2-3 months
+    $filteredOrders = $orders->filter(function ($order) {
+        return $order->created_at >= Carbon::now()->subMonths(3);
+    });
+
+    // Prepare data for the chart
+    $ordersChartData = $filteredOrders->groupBy(function ($order) {
+        return $order->created_at->format('M Y');
+    })->map(function ($monthOrders) {
+        return $monthOrders->count();
+    });
+
+    // Calculate earnings for each month
+    $earningsChartData = $filteredOrders->groupBy(function ($order) {
+        return $order->created_at->format('M Y');
+    })->map(function ($monthOrders) {
+        return $monthOrders->sum('total');
+    });
+
+    // Pass orders and chart data to the view
+    return view('Admin.admin_index', compact('totalOrders', 'totalPrice', 'orders', 'ordersChartData', 'earningsChartData'));
 }
-
-
+}

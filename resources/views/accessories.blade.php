@@ -21,6 +21,59 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"
         integrity="sha512-yHknP1/AwR+yx26cB1y0cjvQUMvEa2PFzt1c9LlS4pRQ5NOTZFWbhBig+X9G9eYW/8m0/4OXNx8pxJ6z57x0dw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+       
+
+<style>
+  
+
+    .custom-product-card {
+        margin-bottom: 20px;
+        transition: transform 0.3s;
+        cursor: pointer;
+    }
+
+    .custom-product-card img {
+        width: 100%;
+        height: 200px;
+        object-fit: fill;
+    }
+
+  
+    .card-body {
+        text-align: center;
+    }
+
+    .card-title {
+        font-size: 1.2rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .card-price {
+        font-size: 1rem;
+        color: #6c757d;
+        margin-bottom: 1rem;
+    }
+
+    .btn {
+        width: 100%;
+        font-size: 1rem;
+    }
+
+    .btn {
+        width: 100%;
+    }
+
+    
+    #loadMoreBtn {
+            margin-top: 20px;
+            display: none;
+            font-size: 1rem;
+            width: 20%;
+        }
+</style>
+
+
+  
 </head>
 
 <body>
@@ -175,92 +228,43 @@
             </section>
         </section>
     </center>
+
+
+    <!--ACCESSORIES SECTION -->
     <center>
-        <h1 style="margin-top: 10vw; font-size: 3.5vw">MEN ACCESSORIES</h1>
-        <section class="menaccesoriessection">
-            <div class="menitems slider">
-                <div class="clothcard">
-                    <img class="item-img" src="Accessoriesimgs/WATCH.png" alt="" />
-                    <h1 class="item-title">DIGITAL WATCH</h1>
-                    <p class="item-price">Rs 100</p>
-                    <p><button onclick="showProduct(this)">Go to Product</button></p>
-                </div>
-                <div class="clothcard">
-                    <img class="item-img" src="Accessoriesimgs/men_perf-removebg-preview.png" alt="" />
-                    <h1 class="item-title">PERFUME</h1>
-                    <p class="item-price">Rs 100</p>
-                    <p><button onclick="showProduct(this)">Go to Product</button></p>
-                </div>
-                <div class="clothcard">
-                    <img class="item-img" src="Accessoriesimgs/belt2-removebg-preview.png" alt="" />
-                    <h1 class="item-title">BELT</h1>
-                    <p class="item-price">Rs 100</p>
-                    <p><button onclick="showProduct(this)">Go to Product</button></p>
-                </div>
-                <div class="clothcard">
-                    <img class="item-img" src="Accessoriesimgs/ma1-removebg-preview.png" alt="" />
-                    <h1 class="item-title">BAG</h1>
-                    <p class="item-price">Rs 200</p>
-                    <p><button onclick="showProduct(this)">Go to Product</button></p>
-                </div>
-                <div class="clothcard">
-                    <img class="item-img" src="Accessoriesimgs/watch-removebg-preview.png" alt="" />
-                    <h1 class="item-title">CASIO WATCH</h1>
-                    <p class="item-price">Rs 150</p>
-                    <p><button onclick="showProduct(this)">Go to Product</button></p>
-                </div>
-                <div class="clothcard">
-                    <img class="item-img" src="Accessoriesimgs/men_perf2-removebg-preview.png" alt="" />
-                    <h1 class="item-title">PERFUME</h1>
-                    <p class="item-price">Rs 250</p>
-                    <p><button onclick="showProduct(this)">Go to Product</button></p>
-                </div>
-            </div>
-        </section>
+        <h1 style="margin-top: 10vw; font-size: 3.5vw">ACCESSORIES</h1>
     </center>
-    <center>
-        <h1 style="margin-top: 10vw; font-size: 3.5vw">WOMEN ACCESSORIES</h1>
-        <section class="menaccesoriessection">
-            <div class="menitems slider">
-                <div class="clothcard">
-                    <img class="item-img" src="Accessoriesimgs/wmbracelet-removebg-preview.png" alt="" />
-                    <h1 class="item-title">BRACELET</h1>
-                    <p class="item-price">Rs 300</p>
-                    <p><button onclick="showProduct(this)">Go to Product</button></p>
+
+
+    <div class="container mt-5">
+        <div class="row row-cols-2 row-cols-md-4 row-cols-lg-5 g-4">
+            @foreach($products as $product)
+                <div class="col">
+                    <div class="custom-product-card ">
+                        <img src="{{ asset($product->picture) }}" class="card-img-top" alt="Product Image">
+                        <div class="card-body">
+                            <h5 class="card-title ">{{ $product->name }}</h5>
+                            <p class="card-price ">Price: {{ $product->price }}</p>
+                            <button type="button" class="btn btn-dark btn-md" onclick="showProduct(this)">Add to Cart</button>
+                        </div>
+                    </div>
                 </div>
-                <div class="clothcard">
-                    <img class="item-img" src="Accessoriesimgs/earings1-removebg-preview.png" alt="" />
-                    <h1 class="item-title">EARINGS</h1>
-                    <p class="item-price">Rs 200</p>
-                    <p><button onclick="showProduct(this)">Go to Product</button></p>
-                </div>
-                <div class="clothcard">
-                    <img class="item-img" src="Accessoriesimgs/wa1-removebg-preview.png" alt="" />
-                    <h1 class="item-title">CLUTCH</h1>
-                    <p class="item-price">Rs 500</p>
-                    <p><button onclick="showProduct(this)">Go to Product</button></p>
-                </div>
-                <div class="clothcard">
-                    <img class="item-img" src="Accessoriesimgs/perfume2-removebg-preview.png" alt="" />
-                    <h1 class="item-title">PERFUME</h1>
-                    <p class="item-price">Rs 200</p>
-                    <p><button onclick="showProduct(this)">Go to Product</button></p>
-                </div>
-                <div class="clothcard">
-                    <img class="item-img" src="Accessoriesimgs/bags-removebg-preview.png" alt="" />
-                    <h1 class="item-title">BAGS SET</h1>
-                    <p class="item-price">Rs 500</p>
-                    <p><button onclick="showProduct(this)">Go to Product</button></p>
-                </div>
-                <div class="clothcard">
-                    <img class="item-img" src="Accessoriesimgs/perfume-removebg-preview.png" alt="" />
-                    <h1 class="item-title">PERFUME 2</h1>
-                    <p class="item-price">Rs 100</p>
-                    <p><button onclick="showProduct(this)">Go to Product</button></p>
-                </div>
-            </div>
-        </section>
-    </center>
+            @endforeach
+        </div>
+    </div>
+
+    <div class="text-center">
+        <button type="button" class="btn btn-outline-dark btn-sm" id="loadMoreBtn">Load More</button>
+    </div>
+   
+
+
+    
+
+
+
+
+    <!--FOOTER-->
 
     <footer style="margin-top: 10%">
         <div class="footerdiv">
@@ -292,6 +296,11 @@
         </p>
     </footer>
 
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"></script>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"
@@ -301,70 +310,72 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
     </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+ 
 
     <script>
         function showProduct(button) {
-            var clothCard = button.parentNode.parentNode;
-            console.log('clothCard:', clothCard);
-
-            var imgElement = clothCard.querySelector('.item-img');
-            console.log('imgElement:', imgElement);
-
-            var img = imgElement ? imgElement.getAttribute('src') : null;
-            var title = clothCard.querySelector('.item-title').innerText;
-            var price = clothCard.querySelector('.item-price').innerText;
-
+            var productCard = button.closest('.custom-product-card');
+            var imgElement = productCard.querySelector('.card-img-top');
+            var title = productCard.querySelector('.card-title').innerText;
+            var price = productCard.querySelector('.card-price').innerText;
+    
             var cartItem = {
-                img: img,
+                img: imgElement ? imgElement.src : null,
                 title: title,
                 price: price,
                 quantity: 1,
             };
-
+    
             // Redirect to the product page with the product details
             window.location.href =
-                `productpage?img=${encodeURIComponent(img)}&title=${encodeURIComponent(title)}&price=${encodeURIComponent(price)}`;
+                `productpage?img=${encodeURIComponent(cartItem.img)}&title=${encodeURIComponent(title)}&price=${encodeURIComponent(price)}`;
         }
     </script>
-
-    <!-- ... (your existing HTML code) ... -->
-
+    
 
 
+<script>
+    $(document).ready(function () {
+        var productsPerPage = 5;
+        var totalProducts = {{ count($products) }};
+        var currentCount = productsPerPage;
 
-    <script>
-        $(".slider").slick({
-            dots: true,
-            infinite: true,
-            speed: 300,
-            slidesToShow: 5,
-            slidesToScroll: 1,
-            responsive: [{
-                    breakpoint: 1024,
-                    settings: {
-                        slidesToShow: 5,
-                        slidesToScroll: 1,
-                        infinite: true,
-                        dots: true,
-                    },
-                },
-                {
-                    breakpoint: 600,
-                    settings: {
-                        slidesToShow: 5,
-                        slidesToScroll: 1,
-                    },
-                },
-                {
-                    breakpoint: 480,
-                    settings: {
-                        slidesToShow: 5,
-                        slidesToScroll: 1,
-                    },
-                },
-            ],
+        // Hide products beyond the first set
+        $('.custom-product-card:gt(' + (productsPerPage - 1) + ')').addClass('d-none');
+
+        // Show the "Load More" button if there are more products
+        if (totalProducts > productsPerPage) {
+            $('#loadMoreBtn').show();
+        }
+
+        // Load more products when the button is clicked
+        $('#loadMoreBtn').on('click', function () {
+            $('.custom-product-card').slice(currentCount, currentCount + productsPerPage).removeClass('d-none');
+            currentCount += productsPerPage;
+
+            // Hide the "Load More" button if no more products to load
+            if (currentCount >= totalProducts) {
+                $('#loadMoreBtn').hide();
+            }
         });
-    </script>
+    });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+   
 </body>
 
 </html>
